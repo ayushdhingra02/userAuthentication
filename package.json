@@ -119,7 +119,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build"
   },
   "author": "",
   "license": "ISC"
