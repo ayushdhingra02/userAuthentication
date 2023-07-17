@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 const cors= require('cors')
+const cookieParser = require("cookie-parser");
+const jwt = require('jsonwebtoken');
+const sessions = require('express-session');
 
 mongoose.connect('mongodb+srv://ayushd20:adino123@kvhr.9qp3hxx.mongodb.net/', {
   useNewUrlParser: true,
@@ -45,7 +48,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(__dirname + '/views'));
 
 var index = require('./routes/index');
+// var admin = require('./routes/admin');
 app.use('/', index);
+// app.use('/admin/', admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
