@@ -12,7 +12,14 @@ jobSchema = new Schema( {
 	recruiter_id: Number,
 	manager_id: Number,
 	client_id: Number,
-	open_positions: Number,
+	open_positions: {
+		type: Number,
+		default:0
+	},
+	filled_positions:{
+		type: Number,
+		default:0
+	},
 	creation_date: {
 		type: Date,
 		default: Date.now
@@ -23,6 +30,10 @@ jobSchema = new Schema( {
 	status: {
 		type: String,
 		default: 'open'
+	},
+	applicants :{
+		type:Array,
+		default:[]
 	}
 	// username: String,
 	// password: String,
