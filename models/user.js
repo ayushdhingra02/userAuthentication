@@ -1,6 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
+const subSchema = new mongoose.Schema({
+	application_id:Number,
+	job_id:Number,
+	company_name:String,
+	
+  });
+  
 userSchema = new Schema( {
 	
 	unique_id: Number,
@@ -12,7 +18,13 @@ userSchema = new Schema( {
 	user_location: String,
 	user_pincode: String,
 	company_name: String,
-	token:String
+	number: String,
+	date_of_joining: String,
+	token:String,
+	application:{
+		type: subSchema,
+		default: {}
+	  }
 }),
 User = mongoose.model('User', userSchema);
 
