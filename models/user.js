@@ -1,5 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+const Stats = require('./stats');
+const Notification = require('./notification');
+const notificationSchema = Notification.schema;
+
+const schema = Stats.schema;
 const subSchema = new mongoose.Schema({
 	application_id:Number,
 	job_id:Number,
@@ -16,15 +21,19 @@ userSchema = new Schema( {
 	confirm_password: String,
 	user_position: String,
 	user_location: String,
-	user_pincode: String,
+	pincode: Number,
+	city:String,
+	state:String,
+	zone:String,
 	company_name: String,
 	number: String,
 	date_of_joining: String,
 	token:String,
 	application:{
-		type: subSchema,
+		type: schema,
 		default: {}
-	  }
+	  },
+	notifications:[notificationSchema]
 }),
 User = mongoose.model('User', userSchema);
 
