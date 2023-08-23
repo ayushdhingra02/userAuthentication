@@ -1,14 +1,14 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-statsSchema = new Schema( {
-	
-	_id: Number,
-    companyName:String,
-    recruited:Number,
-    required:Number,
-    left:Number
-}),
-Application = mongoose.model('Application', applicationSchema);
+statsSchema = new mongoose.Schema({
 
-module.exports = Application;
+    _id: Number,
+    companyName: String,
+    recruited: Number,
+    required: Number,
+    left: Number
+}),
+Stats = mongoose.model('Stats', statsSchema);
+
+module.exports = Stats;
